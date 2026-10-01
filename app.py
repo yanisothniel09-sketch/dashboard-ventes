@@ -4,27 +4,22 @@ import plotly.express as px
 import numpy as np
 import sqlite3
 
-# Configuration de la page Streamlit
 st.set_page_config(
-    page_title="Portfolio Data Analytics",
+    page_title="Portfolio Data & Web",
     page_icon="📊",
     layout="wide"
 )
 
-# Titre Principal
-st.title("📊 Portfolio Data Analyst - Projets & Démonstrations")
-st.markdown("Application centralisée regroupant mes réalisations en **Analyse de Données (EDA)**, **Veille Concurrentielle (Scraping)** et **Requêtage SQL**.")
+st.title("📊 Portfolio Data Analyst & Développeur Web")
+st.markdown("Application centralisée regroupant mes réalisations en **Analyse de Données**, **Veille Concurrentielle**, **SQL** et **Projets Web / E-Commerce**.")
 
-# Création des 3 onglets
-tab1, tab2, tab3 = st.tabs([
+tab1, tab2, tab3, tab4 = st.tabs([
     "📈 Performance Ventes (EDA)", 
     "🛒 Veille & Suivi des Prix", 
-    "🗄️ Requêtes & Base SQL"
+    "🗄️ Requêtes & Base SQL",
+    "🌐 Projets Web & E-Commerce"
 ])
 
-# ==========================================
-# ONGLET 1 : EDA PERFORMANCE VENTES
-# ==========================================
 with tab1:
     st.header("Analyse Exploratoire de la Performance Ventes")
     
@@ -75,12 +70,10 @@ with tab1:
         )
         st.plotly_chart(fig_time, use_container_width=True)
 
-# ==========================================
-# ONGLET 2 : VEILLE DE PRIX & SCRAPING
-# ==========================================
+
 with tab2:
     st.header("🛒 Veille Concurrentielle & Comparatif des Prix")
-    st.markdown("Suivi et historique des prix relevés automatiquement via web scraping sur les plateformes concurrentes.")
+    st.markdown("Suivi et historique des prix relevés automatiquement via web scraping.")
     
     data_prix = [
         {"Produit": "Écouteurs Bluetooth Wireless", "Plateforme": "Site Concurrent A", "Prix_Releve": 15000, "Prix_Notre_Boutique": 13500, "Statut": "🟢 Moins cher chez nous"},
@@ -108,14 +101,10 @@ with tab2:
     )
     st.plotly_chart(fig_comp, use_container_width=True)
 
-# ==========================================
-# ONGLET 3 : DEMO REQUÊTES SQL
-# ==========================================
 with tab3:
-    st.header("🗄️ Analyse Relationnelle & Exécution SQL (SQLite)")
+    st.header("🗄️ Analyse Relationnelle & Exécution SQL")
     st.markdown("Exécution dynamique de requêtes complexes sur un schéma relationnel e-commerce.")
     
-    # Base de données SQLite temporaire
     conn = sqlite3.connect(':memory:')
     cursor = conn.cursor()
     
@@ -149,3 +138,49 @@ with tab3:
     df_sql_result = pd.read_sql_query(sql_query, conn)
     st.subheader("Résultat généré en direct par le serveur SQLite :")
     st.dataframe(df_sql_result, use_container_width=True)
+
+
+with tab4:
+    st.header("🌐 Portfolio Développement Web & Visualisations")
+    st.markdown("Présentation de mes applications web interactives, dashboards JS et boutiques e-commerce.")
+    
+    st.subheader("💻 Projets Web & Dashboards Interactifs (HTML / CSS / Chart.js)")
+    
+    col_w1, col_w2 = st.columns(2)
+    
+    with col_w1:
+        st.markdown("### 🌤️ App Météo & Historique")
+        st.write("**Technologies :** HTML5, CSS3, JavaScript")
+        st.markdown("[👉 Voir l'App Météo en direct](https://yanisothniel09-sketch.github.io/projets-web-html/meteo.html)")
+        
+        st.markdown("---")
+        
+        st.markdown("### 📈 Dashboard E-Commerce - Aperçu Général")
+        st.write("**Technologies :** HTML5, CSS3, JavaScript")
+        st.markdown("[👉 Voir le Dashboard E-Commerce](https://yanisothniel09-sketch.github.io/projets-web-html/dashboard-ecommerce.html)")
+
+    with col_w2:
+        st.markdown("### 📊 Dashboard Chart.js - Indicateurs Afrique de l'Ouest")
+        st.write("**Technologies :** HTML5, CSS3, Chart.js")
+        st.markdown("[👉 Voir le Dashboard Afrique](https://yanisothniel09-sketch.github.io/projets-web-html/dashboard-afrique.html)")
+        
+        st.markdown("---")
+        
+        st.markdown("### 🎨 Infographie : E-commerce en Afrique de l'Ouest")
+        st.write("**Technologies :** HTML5, CSS Grid/Flexbox")
+        st.markdown("[👉 Voir l'Infographie Interactive](https://yanisothniel09-sketch.github.io/projets-web-html/infographie.html)")
+
+    st.markdown("---")
+    
+    st.subheader("🛍️ Boutiques E-Commerce (Shopify)")
+    col_s1, col_s2 = st.columns(2)
+    
+    with col_s1:
+        st.markdown("### 🛒 Charlotte Store")
+        st.write("**Plateforme :** Shopify")
+        st.markdown("[👉 Visiter Charlotte Store](https://charlotte-store-2007.myshopify.com)")
+        
+    with col_s2:
+        st.markdown("### 🏬 Stella's Store")
+        st.write("**Plateforme :** Shopify")
+        st.markdown("[👉 Visiter Stella's Store](https://sinay-9088.myshopify.com)")
