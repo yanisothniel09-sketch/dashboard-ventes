@@ -139,10 +139,12 @@ with tab3:
     st.subheader("Résultat généré en direct par le serveur SQLite :")
     st.dataframe(df_sql_result, use_container_width=True)
 
-
+# ==========================================
+# ONGLET 4 : PROJETS WEB & E-COMMERCE
+# ==========================================
 with tab4:
     st.header("🌐 Portfolio Développement Web & Visualisations")
-    st.markdown("Présentation de mes applications web interactives, dashboards JS et boutiques e-commerce.")
+    st.markdown("Présentation de mes applications web interactives, dashboards JS et projets e-commerce.")
     
     st.subheader("💻 Projets Web & Dashboards Interactifs (HTML / CSS / Chart.js)")
     
@@ -172,15 +174,27 @@ with tab4:
 
     st.markdown("---")
     
-    st.subheader("🛍️ Boutiques E-Commerce (Shopify)")
+    st.subheader("🛍️ Projets & Administration E-Commerce (Shopify)")
+    st.markdown("Conception, paramétrage de catalogues et gestion de boutiques en ligne.")
+    
     col_s1, col_s2 = st.columns(2)
     
     with col_s1:
         st.markdown("### 🛒 Charlotte Store")
         st.write("**Plateforme :** Shopify")
-        st.markdown("[👉 Visiter Charlotte Store](https://charlotte-store-2007.myshopify.com)")
+        st.write("**Secteur :** Produits High-Tech & Électronique")
+        st.write("**Réalisations techniques :**")
+        st.write("- Configuration complète du back-office et du thème d'affichage")
+        st.write("- Structuration du catalogue produits et inventaire")
+        st.write("- Paramétrage des méthodes de paiement et parcours de commande")
+        st.info("📌 *Étude de cas : Boutique configurée et gérée dans le cadre de projets d'expérimentation e-commerce.*")
         
     with col_s2:
         st.markdown("### 🏬 Stella's Store")
         st.write("**Plateforme :** Shopify")
-        st.markdown("[👉 Visiter Stella's Store](https://sinay-9088.myshopify.com)")
+        st.write("**Secteur :** Commerce généralist et accessoires")
+        st.write("**Réalisations techniques :**")
+        st.write("- Personnalisation de l'interface vitrine et fiches produits")
+        st.write("- Intégration des solutions de gestion des stocks et commandes")
+        st.write("- Optimisation du tunnel de conversion (Checkout)")
+        st.info("📌 *Étude de cas : Projet d'intégration e-commerce et gestion de boutique en ligne.*")
